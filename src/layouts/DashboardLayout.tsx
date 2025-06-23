@@ -21,7 +21,6 @@ function DashboardLayout() {
   const location = useLocation();
   const { open } = useSidebar();
   const { data: user, isLoading } = useCurrentUser();
-  console.log("user: ", user);
   const { mutate: handleLogout } = useUserLogout();
 
   if (isLoading)
@@ -30,7 +29,6 @@ function DashboardLayout() {
         <Loading />
       </div>
     );
-  console.log(user?.avatar);
   return (
     <>
       {!user?.admin && (
