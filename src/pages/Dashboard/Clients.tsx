@@ -1,4 +1,3 @@
-import { Helmet } from "react-helmet";
 import { columns, type clients } from "@/components/clients/ClientColumns";
 import { DataTable } from "@/components/data-table";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
@@ -37,28 +36,26 @@ function Clients() {
 
   return (
     <>
-      <Helmet>
-        <title>Clients – Estatein Dashboard</title>
-        <meta
-          name="description"
-          content="View, add, edit, and manage your real estate clients on the Estatein Dashboard."
-        />
-        <link
-          rel="canonical"
-          href="https://estatein-dahboard.vercel.app/clients"
-        />
-        <meta property="og:title" content="Clients – Estatein Dashboard" />
-        <meta
-          property="og:description"
-          content="Easily manage all your real estate clients from the Estatein Dashboard."
-        />
-        <meta
-          property="og:url"
-          content="https://estatein-dahboard.vercel.app/clients"
-        />
-        <meta property="og:type" content="website" />
-        <meta name="twitter:card" content="summary_large_image" />
-      </Helmet>
+      <title>Clients – Estatein Dashboard</title>
+      <meta
+        name="description"
+        content="View, add, edit, and manage your real estate clients on the Estatein Dashboard."
+      />
+      <link
+        rel="canonical"
+        href="https://estatein-dahboard.vercel.app/clients"
+      />
+      <meta property="og:title" content="Clients – Estatein Dashboard" />
+      <meta
+        property="og:description"
+        content="Easily manage all your real estate clients from the Estatein Dashboard."
+      />
+      <meta
+        property="og:url"
+        content="https://estatein-dahboard.vercel.app/clients"
+      />
+      <meta property="og:type" content="website" />
+      <meta name="twitter:card" content="summary_large_image" />
 
       <section className="h-[70vh] flex flex-col gap-y-4">
         <AddDialog />

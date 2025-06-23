@@ -17,16 +17,11 @@ import { useCurrentUser } from "@/hooks/useQueries";
 import { Avatar } from "@radix-ui/react-avatar";
 import { AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Helmet } from "react-helmet";
 
 const formSchema = z.object({
   displayName: z.string().min(2, "Name is too short"),
   avatar: z.string().url("Must be a valid URL"),
-  password: z
-    .string()
-    .min(8, "Min 8 characters")
-    .or(z.literal("")) // allow empty string to skip update
-    .optional(),
+  password: z.string().min(8, "Min 8 characters").or(z.literal("")).optional(),
 });
 
 function Settings() {
@@ -72,31 +67,29 @@ function Settings() {
 
   return (
     <>
-      <Helmet>
-        <title>Account Settings – Estatein Dashboard</title>
-        <meta
-          name="description"
-          content="Manage your Estatein profile settings including display name, avatar, and password updates."
-        />
-        <link
-          rel="canonical"
-          href="https://estatein-dahboard.vercel.app/settings"
-        />
-        <meta
-          property="og:title"
-          content="Account Settings – Estatein Dashboard"
-        />
-        <meta
-          property="og:description"
-          content="Update your personal information, avatar, and password for your Estatein account."
-        />
-        <meta
-          property="og:url"
-          content="https://estatein-dahboard.vercel.app/settings"
-        />
-        <meta property="og:type" content="website" />
-        <meta name="twitter:card" content="summary_large_image" />
-      </Helmet>
+      <title>Account Settings – Estatein Dashboard</title>
+      <meta
+        name="description"
+        content="Manage your Estatein profile settings including display name, avatar, and password updates."
+      />
+      <link
+        rel="canonical"
+        href="https://estatein-dahboard.vercel.app/settings"
+      />
+      <meta
+        property="og:title"
+        content="Account Settings – Estatein Dashboard"
+      />
+      <meta
+        property="og:description"
+        content="Update your personal information, avatar, and password for your Estatein account."
+      />
+      <meta
+        property="og:url"
+        content="https://estatein-dahboard.vercel.app/settings"
+      />
+      <meta property="og:type" content="website" />
+      <meta name="twitter:card" content="summary_large_image" />
       <section className="max-w-2xl px-4 py-5 mx-auto">
         <Card className="shadow-md p-7">
           <CardHeader>

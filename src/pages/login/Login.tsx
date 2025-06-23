@@ -1,4 +1,3 @@
-import { Helmet } from "react-helmet";
 import { useAuthMutation } from "@/hooks/useAuthMutation";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -37,7 +36,6 @@ function Login() {
 
   return (
     <>
-      <Helmet>
         <title>Login — Estatein Dashboard</title>
         <meta name="robots" content="noindex, nofollow" />
         <meta
@@ -48,7 +46,6 @@ function Login() {
           rel="canonical"
           href="https://estatein-dahboard.vercel.app/login"
         />
-      </Helmet>
       <main className="flex min-h-screen bg-background text-foreground">
         <section className="hidden w-1/2 h-screen md:block">
           <img

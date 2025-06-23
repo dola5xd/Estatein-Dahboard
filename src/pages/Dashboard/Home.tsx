@@ -11,30 +11,24 @@ import { ChartBarHorizontal } from "@/components/ChartBarHorizontal";
 import { TopPropertiesCard } from "@/components/TopPropertiesCard";
 import { LatestRatings } from "@/components/LatestRatings";
 import { LatestClientsCard } from "@/components/LatestClientsCard";
-import { Helmet } from "react-helmet";
 
 export default function Home() {
   return (
     <>
-      <Helmet>
-        <title>Dashboard – Estatein</title>
-        <meta
-          name="description"
-          content="Visualize client signups, pricing trends, top properties, and latest activity in your Estatein real estate dashboard."
-        />
-        <link rel="canonical" href="https://estatein-dahboard.vercel.app/" />
-        <meta property="og:title" content="Estatein Dashboard" />
-        <meta
-          property="og:description"
-          content="Track signups, property prices, client ratings, and more from your modern real estate dashboard."
-        />
-        <meta
-          property="og:url"
-          content="https://estatein-dahboard.vercel.app/"
-        />
-        <meta property="og:type" content="website" />
-        <meta name="twitter:card" content="summary_large_image" />
-      </Helmet>
+      <title>Dashboard – Estatein</title>
+      <meta
+        name="description"
+        content="Visualize client signups, pricing trends, top properties, and latest activity in your Estatein real estate dashboard."
+      />
+      <link rel="canonical" href="https://estatein-dahboard.vercel.app/" />
+      <meta property="og:title" content="Estatein Dashboard" />
+      <meta
+        property="og:description"
+        content="Track signups, property prices, client ratings, and more from your modern real estate dashboard."
+      />
+      <meta property="og:url" content="https://estatein-dahboard.vercel.app/" />
+      <meta property="og:type" content="website" />
+      <meta name="twitter:card" content="summary_large_image" />
 
       <ScrollArea
         className="h-[70vh] w-full p-2 gap-y-4"

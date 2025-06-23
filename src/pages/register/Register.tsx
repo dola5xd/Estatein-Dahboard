@@ -21,7 +21,6 @@ import {
 } from "@/components/ui/card";
 import { Link } from "react-router";
 import logo from "@/assets/logo.svg";
-import { Helmet } from "react-helmet";
 
 const schema = z
   .object({
@@ -49,28 +48,26 @@ function Register() {
 
   return (
     <>
-      <Helmet>
-        <title>Register – Estatein Dashboard</title>
-        <meta
-          name="description"
-          content="Create your Estatein account to manage properties, view client ratings, and access your personalized real estate dashboard."
-        />
-        <link
-          rel="canonical"
-          href="https://estatein-dahboard.vercel.app/register"
-        />
-        <meta property="og:title" content="Register – Estatein Dashboard" />
-        <meta
-          property="og:description"
-          content="Join Estatein to manage your real estate listings, track client feedback, and grow your property business."
-        />
-        <meta
-          property="og:url"
-          content="https://estatein-dahboard.vercel.app/register"
-        />
-        <meta property="og:type" content="website" />
-        <meta name="twitter:card" content="summary_large_image" />
-      </Helmet>
+      <title>Register – Estatein Dashboard</title>
+      <meta
+        name="description"
+        content="Create your Estatein account to manage properties, view client ratings, and access your personalized real estate dashboard."
+      />
+      <link
+        rel="canonical"
+        href="https://estatein-dahboard.vercel.app/register"
+      />
+      <meta property="og:title" content="Register – Estatein Dashboard" />
+      <meta
+        property="og:description"
+        content="Join Estatein to manage your real estate listings, track client feedback, and grow your property business."
+      />
+      <meta
+        property="og:url"
+        content="https://estatein-dahboard.vercel.app/register"
+      />
+      <meta property="og:type" content="website" />
+      <meta name="twitter:card" content="summary_large_image" />
       <main className="flex flex-row-reverse min-h-screen bg-background text-foreground">
         <section className="hidden w-1/2 h-screen md:block">
           <img

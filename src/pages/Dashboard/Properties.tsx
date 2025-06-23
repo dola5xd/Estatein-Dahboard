@@ -18,7 +18,6 @@ import DeletePropertyDialog from "@/components/Properties/DeletePropertyDialog";
 import EditPropertyDialog from "@/components/Properties/EditPropertyDialog";
 import { DataTable } from "@/components/data-table";
 import { useProperties } from "@/hooks/useQueries";
-import { Helmet } from "react-helmet";
 
 type StateType = {
   openDialog: boolean;
@@ -39,28 +38,26 @@ function Properties() {
 
   return (
     <>
-      <Helmet>
-        <title>Properties – Estatein Dashboard</title>
-        <meta
-          name="description"
-          content="Manage all your real estate listings and property data efficiently on the Estatein dashboard."
-        />
-        <link
-          rel="canonical"
-          href="https://estatein-dahboard.vercel.app/properties"
-        />
-        <meta property="og:title" content="Properties – Estatein Dashboard" />
-        <meta
-          property="og:description"
-          content="Access, update, and organize your property listings from the Estatein real estate dashboard."
-        />
-        <meta
-          property="og:url"
-          content="https://estatein-dahboard.vercel.app/properties"
-        />
-        <meta property="og:type" content="website" />
-        <meta name="twitter:card" content="summary_large_image" />
-      </Helmet>
+      <title>Properties – Estatein Dashboard</title>
+      <meta
+        name="description"
+        content="Manage all your real estate listings and property data efficiently on the Estatein dashboard."
+      />
+      <link
+        rel="canonical"
+        href="https://estatein-dahboard.vercel.app/properties"
+      />
+      <meta property="og:title" content="Properties – Estatein Dashboard" />
+      <meta
+        property="og:description"
+        content="Access, update, and organize your property listings from the Estatein real estate dashboard."
+      />
+      <meta
+        property="og:url"
+        content="https://estatein-dahboard.vercel.app/properties"
+      />
+      <meta property="og:type" content="website" />
+      <meta name="twitter:card" content="summary_large_image" />
       <section className="h-[70vh] flex flex-col gap-y-4">
         <AddPropertyDialog />
 

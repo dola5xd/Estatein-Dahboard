@@ -15,7 +15,6 @@ import { EllipsisVerticalIcon, SquarePen, UserRoundXIcon } from "lucide-react";
 import AddRatingDialog from "@/components/Ratings/AddRatingDialog";
 import DeleteRatingDialog from "@/components/Ratings/DeleteRatingDialog";
 import EditRatingDialog from "@/components/Ratings/EditRatingDialog";
-import { Helmet } from "react-helmet";
 
 type dialogStateType = {
   openDialog: boolean;
@@ -38,31 +37,26 @@ function Ratings() {
 
   return (
     <>
-      <Helmet>
-        <title>Client Ratings – Estatein Dashboard</title>
-        <meta
-          name="description"
-          content="View and manage client feedback and ratings on properties through the Estatein dashboard."
-        />
-        <link
-          rel="canonical"
-          href="https://estatein-dahboard.vercel.app/ratings"
-        />
-        <meta
-          property="og:title"
-          content="Client Ratings – Estatein Dashboard"
-        />
-        <meta
-          property="og:description"
-          content="Stay informed with the latest client opinions and ratings for your real estate listings."
-        />
-        <meta
-          property="og:url"
-          content="https://estatein-dahboard.vercel.app/ratings"
-        />
-        <meta property="og:type" content="website" />
-        <meta name="twitter:card" content="summary_large_image" />
-      </Helmet>
+      <title>Client Ratings – Estatein Dashboard</title>
+      <meta
+        name="description"
+        content="View and manage client feedback and ratings on properties through the Estatein dashboard."
+      />
+      <link
+        rel="canonical"
+        href="https://estatein-dahboard.vercel.app/ratings"
+      />
+      <meta property="og:title" content="Client Ratings – Estatein Dashboard" />
+      <meta
+        property="og:description"
+        content="Stay informed with the latest client opinions and ratings for your real estate listings."
+      />
+      <meta
+        property="og:url"
+        content="https://estatein-dahboard.vercel.app/ratings"
+      />
+      <meta property="og:type" content="website" />
+      <meta name="twitter:card" content="summary_large_image" />
       <section className="max-h-[70vh] flex flex-col gap-y-4">
         <AddRatingDialog />
         {deleteDialogState?.openDialog && (
