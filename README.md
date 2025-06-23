@@ -1,6 +1,6 @@
 # 🏡 Estatein — Real Estate Platform
 
-![Estatein Hero](https://cdn.sanity.io/images/g43d2dmz/production/7389e1a9b220fa884f157ce12d9f7bd38f7d1fe5-1080x1350.jpg)
+![Estatein Hero](https://socialify.git.ci/dola5xd/Estatein-Dahboard/image?language=1&name=1&owner=1&stargazers=1&theme=Dark)
 
 > A modern real estate web app and admin dashboard to manage listings, ratings, and users.
 
@@ -15,15 +15,14 @@
 
 ## 🖼️ Screenshots
 
-> Replace with your own later by uploading images in `/public` or via external URLs.
-
 ### 🌍 Main Website
 
-![Frontend Preview](https://via.placeholder.com/1200x700.png?text=Frontend+Homepage+Preview)
+![Frontend Preview](https://github.com/dola5xd/Estatein/raw/main/Screenshot/Home_Page.png)
 
 ### 🛠️ Dashboard View
 
-![Dashboard Preview](https://via.placeholder.com/1200x700.png?text=Dashboard+UI+Preview)
+![login page](/Screenshots/login-page.jpeg)
+![home page](/Screenshots/home-page.jpeg)
 
 ---
 
@@ -68,25 +67,25 @@ VITE_API_URL=https://your-api.com
 
 ```
 src/
-├── assets/            # Logos and static assets
-├── components/        # Reusable UI components
-├── hooks/             # Custom hooks
-├── layouts/           # Shared layout components
-├── lib/               # Utilities and helpers
-├── pages/             # Page views
-│   ├── dashboard/     # Dashboard-related pages
-│   ├── login/         # Login page
-│   ├── register/      # Register page
-│   └── settings/      # User settings
-├── styles/            # Global and component styles
-├── utils/             # Utility functions
-├── App.tsx            # App root component
-├── main.tsx           # Entry point
-
+├── components/       # Reusable UI
+├── hooks/            # Custom queries & mutations
+├── pages/            # Views: Login, Register, Dashboard
+├── assets/           # Logos and images
+└── main.tsx          # App entry point
 ```
 
 ---
 
-## 📘 License
+## 🤝 Contributing
 
-MIT — Free to use and modify.
+🚀 Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change.
+
+---
+
+## 📄 License
+
+📜 This project is licensed under the **MIT License**.
+
+---
+
+💖 Made with passion by **Adel Yasser**
