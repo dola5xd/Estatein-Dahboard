@@ -1,54 +1,92 @@
-# React + TypeScript + Vite
+# 🏡 Estatein — Real Estate Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Estatein Hero](https://cdn.sanity.io/images/g43d2dmz/production/7389e1a9b220fa884f157ce12d9f7bd38f7d1fe5-1080x1350.jpg)
 
-Currently, two official plugins are available:
+> A modern real estate web app and admin dashboard to manage listings, ratings, and users.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🌐 Live Demo
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Frontend Website:** [estatein-nu.vercel.app](https://estatein-nu.vercel.app/)
+- **Admin Dashboard:** [estatein-dahboard.vercel.app](https://estatein-dahboard.vercel.app/login)
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+---
+
+## 🖼️ Screenshots
+
+> Replace with your own later by uploading images in `/public` or via external URLs.
+
+### 🌍 Main Website
+
+![Frontend Preview](https://via.placeholder.com/1200x700.png?text=Frontend+Homepage+Preview)
+
+### 🛠️ Dashboard View
+
+![Dashboard Preview](https://via.placeholder.com/1200x700.png?text=Dashboard+UI+Preview)
+
+---
+
+## ⚙️ Tech Stack
+
+- **Frontend:** React, Vite, TypeScript, Tailwind CSS, React Router
+- **Dashboard UI:** ShadCN, Radix UI, Lucide Icons
+- **Forms:** React Hook Form + Zod Validation
+- **State/Data:** React Query (TanStack)
+- **Auth:** Firebase Auth (email/password + Google)
+
+---
+
+## 📦 Installation
+
+```bash
+# Clone project
+git clone https://github.com/your-username/estatein.git
+cd estatein
+
+# Install dependencies
+npm install
+
+# Start dev server
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🧪 Environment Variables
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+Example `.env`:
+
+```env
+VITE_FIREBASE_API_KEY=your_key
+VITE_API_URL=https://your-api.com
 ```
+
+---
+
+## 📁 Folder Highlights
+
+```
+src/
+├── assets/            # Logos and static assets
+├── components/        # Reusable UI components
+├── hooks/             # Custom hooks
+├── layouts/           # Shared layout components
+├── lib/               # Utilities and helpers
+├── pages/             # Page views
+│   ├── dashboard/     # Dashboard-related pages
+│   ├── login/         # Login page
+│   ├── register/      # Register page
+│   └── settings/      # User settings
+├── styles/            # Global and component styles
+├── utils/             # Utility functions
+├── App.tsx            # App root component
+├── main.tsx           # Entry point
+
+```
+
+---
+
+## 📘 License
+
+MIT — Free to use and modify.

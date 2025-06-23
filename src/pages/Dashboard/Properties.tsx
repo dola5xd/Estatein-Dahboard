@@ -18,6 +18,7 @@ import DeletePropertyDialog from "@/components/Properties/DeletePropertyDialog";
 import EditPropertyDialog from "@/components/Properties/EditPropertyDialog";
 import { DataTable } from "@/components/data-table";
 import { useProperties } from "@/hooks/useQueries";
+import { Helmet } from "react-helmet";
 
 type StateType = {
   openDialog: boolean;
@@ -37,65 +38,89 @@ function Properties() {
   if (isLoading) return <Loading />;
 
   return (
-    <section className="h-[70vh] flex flex-col gap-y-4">
-      <AddPropertyDialog />
-
-      {deletePropertyState?.openDialog && (
-        <DeletePropertyDialog
-          id={deletePropertyState.propertyID!}
-          open={deletePropertyState.openDialog}
-          onOpenChange={(open) => !open && setDeletePropertyState(null)}
+    <>
+      <Helmet>
+        <title>Properties – Estatein Dashboard</title>
+        <meta
+          name="description"
+          content="Manage all your real estate listings and property data efficiently on the Estatein dashboard."
         />
-      )}
-
-      {editPropertyState?.openDialog && (
-        <EditPropertyDialog
-          property={editPropertyState.property!}
-          open={editPropertyState.openDialog}
-          onOpenChange={(open) => !open && setEditPropertyState(null)}
+        <link
+          rel="canonical"
+          href="https://estatein-dahboard.vercel.app/properties"
         />
-      )}
-
-      <ScrollArea className="w-full h-full rounded-md bg-accent/25">
-        <DataTable
-          columns={columns}
-          data={data!}
-          rowActions={(row) => (
-            <DropdownMenu>
-              <DropdownMenuTrigger className="text-center cursor-pointer">
-                <EllipsisVerticalIcon />
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="bg-accent *:cursor-pointer">
-                <DropdownMenuItem
-                  onClick={() =>
-                    setEditPropertyState({
-                      openDialog: true,
-                      property: row.original,
-                    })
-                  }
-                >
-                  <SquarePen size={20} className="mr-2" />
-                  Edit
-                </DropdownMenuItem>
-                <DropdownMenuItem
-                  variant="destructive"
-                  onClick={() =>
-                    setDeletePropertyState({
-                      openDialog: true,
-                      propertyID: row.original._id,
-                    })
-                  }
-                >
-                  <UserRoundXIcon size={20} className="mr-2 text-red-500" />
-                  Delete
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-          )}
+        <meta property="og:title" content="Properties – Estatein Dashboard" />
+        <meta
+          property="og:description"
+          content="Access, update, and organize your property listings from the Estatein real estate dashboard."
         />
-        <ScrollBar orientation="horizontal" />
-      </ScrollArea>
-    </section>
+        <meta
+          property="og:url"
+          content="https://estatein-dahboard.vercel.app/properties"
+        />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Helmet>
+      <section className="h-[70vh] flex flex-col gap-y-4">
+        <AddPropertyDialog />
+
+        {deletePropertyState?.openDialog && (
+          <DeletePropertyDialog
+            id={deletePropertyState.propertyID!}
+            open={deletePropertyState.openDialog}
+            onOpenChange={(open) => !open && setDeletePropertyState(null)}
+          />
+        )}
+
+        {editPropertyState?.openDialog && (
+          <EditPropertyDialog
+            property={editPropertyState.property!}
+            open={editPropertyState.openDialog}
+            onOpenChange={(open) => !open && setEditPropertyState(null)}
+          />
+        )}
+
+        <ScrollArea className="w-full h-full rounded-md bg-accent/25">
+          <DataTable
+            columns={columns}
+            data={data!}
+            rowActions={(row) => (
+              <DropdownMenu>
+                <DropdownMenuTrigger className="text-center cursor-pointer">
+                  <EllipsisVerticalIcon />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="bg-accent *:cursor-pointer">
+                  <DropdownMenuItem
+                    onClick={() =>
+                      setEditPropertyState({
+                        openDialog: true,
+                        property: row.original,
+                      })
+                    }
+                  >
+                    <SquarePen size={20} className="mr-2" />
+                    Edit
+                  </DropdownMenuItem>
+                  <DropdownMenuItem
+                    variant="destructive"
+                    onClick={() =>
+                      setDeletePropertyState({
+                        openDialog: true,
+                        propertyID: row.original._id,
+                      })
+                    }
+                  >
+                    <UserRoundXIcon size={20} className="mr-2 text-red-500" />
+                    Delete
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            )}
+          />
+          <ScrollBar orientation="horizontal" />
+        </ScrollArea>
+      </section>
+    </>
   );
 }
 

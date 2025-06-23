@@ -15,6 +15,7 @@ import { EllipsisVerticalIcon, SquarePen, UserRoundXIcon } from "lucide-react";
 import AddRatingDialog from "@/components/Ratings/AddRatingDialog";
 import DeleteRatingDialog from "@/components/Ratings/DeleteRatingDialog";
 import EditRatingDialog from "@/components/Ratings/EditRatingDialog";
+import { Helmet } from "react-helmet";
 
 type dialogStateType = {
   openDialog: boolean;
@@ -36,61 +37,91 @@ function Ratings() {
   if (isLoading) return <Loading />;
 
   return (
-    <section className="h-[70vh] flex flex-col gap-y-4">
-      <AddRatingDialog />
-      {deleteDialogState?.openDialog && (
-        <DeleteRatingDialog
-          id={deleteDialogState.id}
-          open={deleteDialogState.openDialog}
-          onOpenChange={(open) => !open && setDeleteDialog(null)}
+    <>
+      <Helmet>
+        <title>Client Ratings – Estatein Dashboard</title>
+        <meta
+          name="description"
+          content="View and manage client feedback and ratings on properties through the Estatein dashboard."
         />
-      )}
-      {editDialogState?.openDialog && (
-        <EditRatingDialog
-          rating={editDialogState.rating}
-          open={editDialogState.openDialog}
-          onOpenChange={(open) => !open && setEditDialogState(null)}
+        <link
+          rel="canonical"
+          href="https://estatein-dahboard.vercel.app/ratings"
         />
-      )}
+        <meta
+          property="og:title"
+          content="Client Ratings – Estatein Dashboard"
+        />
+        <meta
+          property="og:description"
+          content="Stay informed with the latest client opinions and ratings for your real estate listings."
+        />
+        <meta
+          property="og:url"
+          content="https://estatein-dahboard.vercel.app/ratings"
+        />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Helmet>
+      <section className="h-[70vh] flex flex-col gap-y-4">
+        <AddRatingDialog />
+        {deleteDialogState?.openDialog && (
+          <DeleteRatingDialog
+            id={deleteDialogState.id}
+            open={deleteDialogState.openDialog}
+            onOpenChange={(open) => !open && setDeleteDialog(null)}
+          />
+        )}
+        {editDialogState?.openDialog && (
+          <EditRatingDialog
+            rating={editDialogState.rating}
+            open={editDialogState.openDialog}
+            onOpenChange={(open) => !open && setEditDialogState(null)}
+          />
+        )}
 
-      <ScrollArea className="h-full rounded bg-accent/25">
-        <DataTable
-          columns={columns}
-          data={data!}
-          textCenter={false}
-          rowActions={(row) => (
-            <DropdownMenu>
-              <DropdownMenuTrigger className="text-center cursor-pointer">
-                <EllipsisVerticalIcon />
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="bg-accent *:cursor-pointer">
-                <DropdownMenuItem
-                  onClick={() =>
-                    setEditDialogState({
-                      openDialog: true,
-                      rating: row.original,
-                    })
-                  }
-                >
-                  <SquarePen color="#fff" size={25} />
-                  Edit
-                </DropdownMenuItem>
+        <ScrollArea className="h-full rounded bg-accent/25">
+          <DataTable
+            columns={columns}
+            data={data!}
+            textCenter={false}
+            rowActions={(row) => (
+              <DropdownMenu>
+                <DropdownMenuTrigger className="text-center cursor-pointer">
+                  <EllipsisVerticalIcon />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="bg-accent *:cursor-pointer">
+                  <DropdownMenuItem
+                    onClick={() =>
+                      setEditDialogState({
+                        openDialog: true,
+                        rating: row.original,
+                      })
+                    }
+                  >
+                    <SquarePen color="#fff" size={25} />
+                    Edit
+                  </DropdownMenuItem>
 
-                <DropdownMenuItem
-                  variant="destructive"
-                  onClick={() =>
-                    setDeleteDialog({ openDialog: true, id: row.original._id })
-                  }
-                >
-                  <UserRoundXIcon color="#ff6467" size={25} />
-                  Delete
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-          )}
-        />
-      </ScrollArea>
-    </section>
+                  <DropdownMenuItem
+                    variant="destructive"
+                    onClick={() =>
+                      setDeleteDialog({
+                        openDialog: true,
+                        id: row.original._id,
+                      })
+                    }
+                  >
+                    <UserRoundXIcon color="#ff6467" size={25} />
+                    Delete
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            )}
+          />
+        </ScrollArea>
+      </section>{" "}
+    </>
   );
 }
 
