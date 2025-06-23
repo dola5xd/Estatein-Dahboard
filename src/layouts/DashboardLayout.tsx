@@ -59,6 +59,7 @@ function DashboardLayout() {
                   <AvatarImage
                     className="w-12 rounded-full aspect-square"
                     src={user!.avatar}
+                    alt="User Avatar"
                   />
                   <AvatarFallback className="flex items-center self-center justify-center w-12 text-lg rounded-full">
                     {user?.displayName?.[0]?.toUpperCase() || "U"}
