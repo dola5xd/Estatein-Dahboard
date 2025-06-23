@@ -5,6 +5,7 @@
 body {
   font-family: "Urbanist", sans-serif;
   min-width: 100vw;
+  overflow: hidden;
 }
 :root {
   --background: oklch(1 0 0);
