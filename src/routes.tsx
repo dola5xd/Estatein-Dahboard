@@ -4,7 +4,7 @@ import Loading from "./components/loading";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { ErrorBoundary } from "react-error-boundary";
 import ErrorFallback from "@/components/ErrorFallback";
-import Login from "@/pages/login/Login";
+const Login = lazy(() => import("@/pages/login/Login"));
 const Register = lazy(() => import("@/pages/register/Register"));
 const DashboardLayout = lazy(() => import("@/layouts/DashboardLayout"));
 const PrivateRoute = lazy(() => import("@/layouts/PrivateRoute"));
