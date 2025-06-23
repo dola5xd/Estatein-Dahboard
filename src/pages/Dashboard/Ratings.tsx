@@ -63,7 +63,7 @@ function Ratings() {
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
-      <section className="h-[70vh] flex flex-col gap-y-4">
+      <section className="max-h-[70vh] flex flex-col gap-y-4">
         <AddRatingDialog />
         {deleteDialogState?.openDialog && (
           <DeleteRatingDialog
