@@ -36,18 +36,19 @@ function Login() {
 
   return (
     <>
-        <title>Login — Estatein Dashboard</title>
-        <meta name="robots" content="noindex, nofollow" />
-        <meta
-          name="description"
-          content="Secure login to access your Estatein real estate dashboard."
-        />
-        <link
-          rel="canonical"
-          href="https://estatein-dahboard.vercel.app/login"
-        />
+      <title>Login — Estatein Dashboard</title>
+      <meta name="robots" content="noindex, nofollow" />
+      <meta
+        name="description"
+        content="Secure login to access your Estatein real estate dashboard."
+      />
+      <link
+        rel="canonical"
+        href="https://estatein-dashboard.vercel.app/login"
+      />
+
       <main className="flex min-h-screen bg-background text-foreground">
-        <section className="hidden w-1/2 h-screen md:block">
+        <section className="hidden md:block w-1/2 h-screen">
           <img
             src="https://estatein-nu.vercel.app/_next/image?url=%2Fimages%2FHero-img.png&w=1080&q=75"
             alt="signup visual"
@@ -57,7 +58,6 @@ function Login() {
 
         <section className="flex flex-col items-center justify-center w-full px-6 gap-y-7 md:w-1/2">
           <img src={logo} alt="logo" />
-
           <Card className="w-full max-w-md">
             <CardHeader className="text-center">
               <CardTitle className="text-2xl">Welcome Back</CardTitle>
@@ -70,44 +70,38 @@ function Login() {
                   onSubmit={form.handleSubmit((values) =>
                     mutation.mutate(values)
                   )}
-                  autoComplete="off"
                   className="space-y-5"
+                  autoComplete="off"
                 >
-                  <FormField
-                    name="email"
-                    control={form.control}
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Email</FormLabel>
-                        <FormControl>
-                          <Input
-                            autoComplete="off"
-                            placeholder="you@example.com"
-                            {...field}
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  <FormField
-                    name="password"
-                    control={form.control}
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Password</FormLabel>
-                        <FormControl>
-                          <Input
-                            autoComplete="new-password"
-                            type="password"
-                            placeholder="********"
-                            {...field}
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
+                  {(["email", "password"] as const).map((field) => (
+                    <FormField
+                      key={field}
+                      name={field}
+                      control={form.control}
+                      render={({ field: f }) => (
+                        <FormItem>
+                          <FormLabel>
+                            {field === "email" ? "Email" : "Password"}
+                          </FormLabel>
+                          <FormControl>
+                            <Input
+                              {...f}
+                              placeholder={
+                                field === "email"
+                                  ? "you@example.com"
+                                  : "********"
+                              }
+                              type={field === "password" ? "password" : "text"}
+                              autoComplete={
+                                field === "password" ? "new-password" : "off"
+                              }
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  ))}
 
                   <Button
                     type="submit"
@@ -121,12 +115,12 @@ function Login() {
                     type="button"
                     variant="outline"
                     onClick={googleSignIn}
-                    className="flex items-center justify-center w-full gap-2"
+                    className="w-full flex justify-center gap-2"
                   >
                     Sign in with Google
                   </Button>
 
-                  <p className="mt-4 text-sm text-center">
+                  <p className="text-sm text-center mt-4">
                     Don’t have an account?{" "}
                     <Link
                       to="/register"
@@ -140,7 +134,7 @@ function Login() {
             </CardContent>
           </Card>
         </section>
-      </main>{" "}
+      </main>
     </>
   );
 }
