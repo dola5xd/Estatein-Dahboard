@@ -1,11 +1,9 @@
 import { lazy, Suspense, type JSX } from "react";
 import type { RouteObject } from "react-router";
 import { Navigate } from "react-router";
-import { SidebarProvider } from "./components/ui/sidebar";
 import Loading from "./components/loading";
-import Settings from "./pages/settings/Settings";
+import { SidebarProvider } from "@/components/ui/sidebar";
 
-// Lazy-loaded components
 const Login = lazy(() => import("@/pages/login/Login"));
 const Register = lazy(() => import("@/pages/register/Register"));
 const DashboardLayout = lazy(() => import("@/layouts/DashboardLayout"));
@@ -15,7 +13,7 @@ const Home = lazy(() => import("@/pages/Dashboard/Home"));
 const Clients = lazy(() => import("@/pages/Dashboard/Clients"));
 const Properties = lazy(() => import("@/pages/Dashboard/Properties"));
 const Ratings = lazy(() => import("@/pages/Dashboard/Ratings"));
-// const Settings = lazy(() => import("@/pages/Dashboard/Settings"));
+const Settings = lazy(() => import("@/pages/settings/Settings"));
 
 const withSuspense = (Component: JSX.Element) => (
   <Suspense fallback={<Loading />}>{Component}</Suspense>
